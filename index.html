@@ -1,10 +1,21 @@
 <!DOCTYPE html>
 	<head>
 		<title></title>
+		<link rel="stylesheet" type="text/css" href="mystyle.css">
 	</head>
 	<body>
-		<div id="container">
-			<object type="image/svg+xml" data="svg/sample.svg"></object>
+		<script>
+			function changeClassInSvg(id, newClassName) {
+				var object = document.getElementById(id);
+				var svgDocument = object.contentDocument;
+				var svgElement = svgDocument.getElementsByClassName(id);
+				svgElement[0].setAttribute("class", newClassName);
+			}
+		</script>
+
+		<button type="button" onclick="changeClassInSvg('filter', 'filterOnHover')">ChangeColor</button>
+		<div class="container" style="width:100px;">
+			<object id="filter" type="image/svg+xml" data="svg/filter.svg"></object>
 		</div>
 	</body>
 </html>
